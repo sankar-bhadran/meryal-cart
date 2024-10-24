@@ -7,3 +7,14 @@
   padding: 0px;
   box-sizing: border-box;
 }
+
+th,
+td {
+  /* border: 1px solid #dddddd; */
+  text-align: center;
+  padding: 8px;
+}
+
+th {
+  border-bottom: 1px solid #dddddd;
+}

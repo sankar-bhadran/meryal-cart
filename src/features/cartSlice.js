@@ -3,6 +3,8 @@ import { createSlice } from "@reduxjs/toolkit";
 const initialState = {
   value: 0,
   adultCount: 0,
+  adultTotal: 0,
+  juniorTotal: 0,
   juniorCount: 0,
 };
 
@@ -15,9 +17,11 @@ const cartSlice = createSlice({
       // By checking the a type sent by the dispatch function
       if (action.payload === "junior") {
         state.value += 225;
+        state.juniorTotal += 225;
         state.juniorCount += 1;
       } else {
         state.value += 260;
+        state.adultTotal += 260;
         state.adultCount += 1;
       }
     },
@@ -25,9 +29,11 @@ const cartSlice = createSlice({
     subtract(state, action) {
       if (action.payload === "junior") {
         state.value -= 225;
+        state.juniorTotal -= 225;
         state.juniorCount -= 1;
       } else {
         state.value -= 260;
+        state.adultTotal -= 260;
         state.adultCount -= 1;
       }
     },
