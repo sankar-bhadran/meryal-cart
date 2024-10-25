@@ -4,7 +4,6 @@ import { Button, DatePicker, Divider, Space } from "antd";
 import { useSelector } from "react-redux";
 import { Drawer } from "antd";
 import React, { useState } from "react";
-import { cartoon } from "../../public/depositphotos_136690258-stock-illustration-happy-smile-kid-child-boy.jpg";
 const Cart = () => {
   const [open, setOpen] = useState(false);
   const [value, setValue] = useState("");
@@ -57,7 +56,7 @@ const Cart = () => {
   return (
     <>
       <div className="h-screen bg-[#ECECF4] flex justify-center items-center">
-        <div className=" rounded-3xl bg-sky-200 p-2 w-100%">
+        <div className=" rounded-3xl border-2 border-[#673E98] bg-  p-2 w-100%">
           <div className="p-10 flex flex-col gap-6">
             <div className="text-center">
               <h1 className="customFont font-bold text-3xl text-[#673E98]">
@@ -124,22 +123,27 @@ const Cart = () => {
           </div>
         </div>
 
-        <div
-          className="fixed w-28 h-28 rounded-full flex  items-center justify-center 
+        {adultTotal > 0 || juniorTotal > 0 ? (
+          <div
+            className="fixed w-28 h-28 rounded-full flex  items-center justify-center 
                  text-gray-700 text-xl font-bold ml-[1350px] bg-gradient-to-t from-[#4F7FB4] to-[#66419A]  bottom-40"
-          onClick={showDrawer}
-        >
-          <div className="items-center">
-            <div>
-              <ion-icon
-                name="cart-outline"
-                class="lg hydrated text-2xl ml-2  text-white"
-              ></ion-icon>
-            </div>
+            onClick={showDrawer}
+          >
+            <div className="items-center">
+              <div>
+                <ion-icon
+                  name="cart-outline"
+                  class="lg hydrated text-2xl ml-2  text-white"
+                ></ion-icon>
+              </div>
 
-            <p className="text-sm text-white ">QAR {result}</p>
+              <p className="text-sm text-white ">QAR {result}</p>
+            </div>
           </div>
-        </div>
+        ) : (
+          ""
+        )}
+
         <Drawer
           open={open}
           closable={false}

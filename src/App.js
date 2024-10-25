@@ -1,13 +1,14 @@
-import Cart from "./component/Cart/Cart";
-import Footer from "./component/Footer/Footer";
-import Header from "./component/Header/Header";
+import { Route, Routes } from "react-router-dom";
+import Cart from "./Pages/Cart/CartPage";
+import SpecialOfferPage from "./Pages/SpecialPage/SpecialOfferPage";
 
 function App() {
   return (
     <div className="App">
-      <Header />
-      <Cart />
-      <Footer />
+      <Routes>
+        <Route path="/" element={<Cart />} />
+        <Route path="/special" element={<SpecialOfferPage />} />
+      </Routes>
     </div>
   );
 }
